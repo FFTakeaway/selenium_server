@@ -21,12 +21,14 @@ api = Flask(__name__)
 
 @api.route('/rushing', methods=['GET'])
 def get_rushing():
-    driver = webdriver.Chrome(executable_path = r"C:/Users/lemar/Desktop/Schoolwork/Senior Design 2/chromedriver_win32/chromedriver.exe") 
+    print("received get request")
     url = "https://www.pro-football-reference.com/years/2019/rushing_advanced.htm"
     #load the page
     driver.get(url)
+    print("got content")
     rushing_info = { "html" : str(driver.page_source)}
     #rushing_info = { "html" :  "rushing info"}
+    print("returning content")
     return json.dumps(rushing_info)
 
 if __name__ == '__main__':
