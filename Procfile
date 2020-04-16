@@ -1,1 +1,1 @@
-web: python flask_server.py
+web: gunicorn app:flask_server
