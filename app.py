@@ -21,15 +21,15 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 app = Flask(__name__)
 
-@app.route('/rushing/<string:category>', methods=['GET'])
-def get_rushing(category):
+@app.route('/advanced/<string:category>/<int:year>', methods=['GET'])
+def get_rushing(category, season):
     print("received get request")
-    url = "https://www.pro-football-reference.com/years/2019/rushing_advanced.htm"
+    #url = "https://www.pro-football-reference.com/years/2019/rushing_advanced.htm"
     #load the page
-    driver.get(url)
-    print("got content")
-    rushing_info = { "html" : str(driver.page_source), "category" : category}
-    #rushing_info = { "html" :  "rushing info"}
+    #driver.get(url)
+    #print("got content")
+    rushing_info = {"category" : category, "season" : season}
+    #rushing_info = { "html" : str(driver.page_source)}
     print("returning content")
     return json.dumps(rushing_info)
 
