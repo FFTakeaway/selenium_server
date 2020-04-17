@@ -9,7 +9,7 @@ import requests
 import pandas as pd  
 
 # api-endpoint 
-URL = "http://127.0.0.1:5000/rushing"
+URL = "https://webapi-hw2.herokuapp.com/rushing"
   
   
 # sending get request and saving the response as response object 
