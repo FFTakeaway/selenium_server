@@ -21,7 +21,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 app = Flask(__name__)
 
-@app.route('/advanced/<string:category>/<int:season>', methods=['GET'])
+@app.route('/advanced/<string:category>/<string:season>', methods=['GET'])
 def get_rushing(category, season):
     print("received get request")
     url = "https://www.pro-football-reference.com/years/" + season + "/" + category + "_advanced.htm"
